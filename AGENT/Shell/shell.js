@@ -1,5 +1,5 @@
-// AUTHOR: XTM26
-// GITHUB: https://github.com/XTM26
+// AUTHOR: MatrixTM26
+// GITHUB: https://github.com/MatrixTM26
 // EVIL-JS Shell Script
 
 const SERVER = "127.0.0.1";

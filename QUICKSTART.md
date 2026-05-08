@@ -1,7 +1,7 @@
 <h2 align="left">Installation</h2>
 
 ```bash
-git clone https://github.com/XTM26/TOMCAT-C2.git
+git clone https://github.com/MatrixTM26/TOMCAT-C2.git
 ```
 
 <p align="left">Install Dependencies</p>
@@ -179,4 +179,4 @@ AddPersistence = False
 python3 start.py -a myagent -ah 192.168.1.10 -ap 4444
 ```
 
-<p align="center">&copy; 2026 XTM26</p>
+<p align="center">&copy; 2026 MatrixTM26</p>

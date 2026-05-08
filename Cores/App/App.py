@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # TOMCAT C2 Frameworks
-# Author: XTM26
-# GitHub: XTM26
+# Author: MatrixTM26
+# GitHub: MatrixTM26
 
 """
 [+] NOTE:
@@ -9,7 +9,7 @@
     -- If you want to expand this project, ask owner for collaboration instead.
 
     Thanks for understanding.
-    ~XTM26
+    ~MatrixTM26
 """
 
 import threading
