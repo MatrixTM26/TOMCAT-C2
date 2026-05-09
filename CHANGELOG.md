@@ -34,6 +34,7 @@
 
 ---
 
-> Note: For all the version above currently is under development. If you spotted a bug, please contact me via email: `tomcat7wardns@gmail.com` or via: [instagram](https://instagram.com/xtm26.xp)
+> [!IMPORTANT]
+> Note: For all the version above currently is under development. If you spotted a bug, please contact me via email: `anonymous999tm@gmail.com` or via: [instagram](https://instagram.com/xtm26.xp)
 
-<p align="center">&copy; 2026 XTM26</p>
+<p align="center">&copy; 2026 MatrixTM26</p>
