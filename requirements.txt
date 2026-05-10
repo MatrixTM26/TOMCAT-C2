@@ -2,3 +2,6 @@ pysocks
 cryptography
 requests
 flask
+flask-socketio
+pydns
+aiohttp
