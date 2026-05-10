@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env sh
 
 Red='\033[0;31m'
 Green='\033[0;32m'
@@ -137,7 +137,7 @@ WRAPPER
 
 Verify() {
   export PATH="$PATH:$InstallDir"
-  if command -v tomcat-c2 &>/dev/null; then
+  if command -v tomcatc2 &>/dev/null; then
     Success "Done! Type ${Bold}tomcat-c2${Nc} to start TOMCAT-C2."
   else
     Warning "Install done. Restart terminal then type ${Bold}tomcat-c2${Nc}."
