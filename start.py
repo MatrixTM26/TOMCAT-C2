@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 # TOMCAT C2 Frameworks
 # Author: MatrixTM26
 # GitHub: MatrixTM26
