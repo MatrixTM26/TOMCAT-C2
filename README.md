@@ -322,4 +322,11 @@ The fix applies SSL wrapping based on a **peek** of the first bytes — plain-TC
 
 ---
 
+## Another Shell Backdoor For This Project
+
+[SHELL BACKDOOR LIST](https://github.com/MatrixTM26/shell-backdoor)
+
+---
+
+
 <p align="center">&copy; 2026 MatrixTM26</p>
