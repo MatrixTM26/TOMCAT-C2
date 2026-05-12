@@ -14,8 +14,8 @@
 
 import os
 import json
-from Config.Color import TMColor
-from Cores.Systems.System import StrObject
+from lib.config.Color import TMColor
+from lib.core.Systems.System import StrObject
 from cryptography import x509
 from cryptography.x509.oid import NameOID, ExtendedKeyUsageOID
 from cryptography.hazmat.primitives import hashes, serialization

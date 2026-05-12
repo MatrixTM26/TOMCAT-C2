@@ -19,9 +19,9 @@ import ssl
 import threading
 import os
 import traceback
-from Config.Color import TMColor
-from Cores.Systems.System import StrObject
-from Cores.Systems.Cryptography import Cryptography
+from lib.config.Color import TMColor
+from lib.core.Systems.System import StrObject
+from lib.core.Systems.Cryptography import Cryptography
 from datetime import datetime
 from time import time, sleep
 

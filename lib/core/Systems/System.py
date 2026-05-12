@@ -14,7 +14,7 @@
 
 import os
 from itertools import cycle
-from Config.Color import TMColor
+from lib.config.Color import TMColor
 from sys import stdout
 from time import sleep
 

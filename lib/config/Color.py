@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # TOMCAT C2 Frameworks V2
-# Author: TOM7
-# GitHub: tom7voldemort
+# Author: MatrixTM26
+# GitHub: MatrixTM26
 
 
 class TMColor:

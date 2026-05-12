@@ -1301,7 +1301,7 @@ class TOMCATC2GUI:
     ):
         try:
             if MeterpreterMode:
-                from Cores.Systems.MultiProtocolServer import (
+                from lib.core.Systems.MultiProtocolServer import (
                     MultiProtocolServer as TOMCATC2SERVER,
                 )
 
@@ -1312,7 +1312,7 @@ class TOMCATC2GUI:
                     MeterpreterMode=MeterpreterMode,
                 )
             else:
-                from Cores.Systems.Server import TOMCATC2SERVER
+                from lib.core.Systems.Server import TOMCATC2SERVER
 
                 self.Server = TOMCATC2SERVER(Host=Host, Port=Port, UseMTLS=UseMTLS)
             self.Server.AddEventListener(self.ServerEventHandler)

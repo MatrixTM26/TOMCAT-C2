@@ -16,9 +16,9 @@ import shutil
 import threading
 import time
 from datetime import datetime
-from Config.Color import TMColor
-from Config.Logo import AUTHBanner, TBanner, EndBanner
-from Cores.Systems.System import StrObject
+from lib.config.Color import TMColor
+from lib.config.Logo import AUTHBanner, TBanner, EndBanner
+from lib.core.Systems.System import StrObject
 
 
 class TOMCATC2CLI:
@@ -254,7 +254,7 @@ class TOMCATC2CLI:
     ):
         try:
             if MeterpreterMode:
-                from Cores.Systems.MultiProtocolServer import (
+                from lib.core.Systems.MultiProtocolServer import (
                     MultiProtocolServer as TOMCATC2SERVER,
                 )
 
@@ -265,7 +265,7 @@ class TOMCATC2CLI:
                     MeterpreterMode=MeterpreterMode,
                 )
             else:
-                from Cores.Systems.Server import TOMCATC2SERVER
+                from lib.core.Systems.Server import TOMCATC2SERVER
 
                 self.Server = TOMCATC2SERVER(Host=Host, Port=Port, UseMTLS=UseMTLS)
             self.Server.AddEventListener(self.ServerEventHandler)

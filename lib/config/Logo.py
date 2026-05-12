@@ -16,8 +16,8 @@ import random
 import socket
 from datetime import datetime
 
-from Config.Color import TMColor
-from Cores.Systems.System import StrObject
+from lib.config.Color import TMColor
+from lib.cores.Systems.System import StrObject
 
 Hostname = socket.gethostname()
 Now = datetime.now()

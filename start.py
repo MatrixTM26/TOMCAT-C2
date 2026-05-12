@@ -15,15 +15,15 @@
 import os
 import sys
 import argparse
-from Cores.Systems.System import StrObject
-from Config.Color import TMColor
-from Config.Logo import AUTHBanner, TBanner
-from Config.Helper import Helper
+from lib.core.Systems.System import StrObject
+from lib.config.Color import TMColor
+from lib.config.Logo import AUTHBanner, TBanner
+from lib.config.Helper import Helper
 
 
 def InitCertificates(Host="0.0.0.0"):
     try:
-        from Cores.Systems.CertificateManager import CertificateManager
+        from lib.core.Systems.CertificateManager import CertificateManager
 
         StrObject.Messages("Initializing MTLS Certificate Infrastructure")
         CertManager = CertificateManager()
@@ -66,7 +66,7 @@ def GenerateAgentCert(
     HideConsole=False,
 ):
     try:
-        from Cores.Systems.CertificateManager import CertificateManager
+        from lib.core.Systems.CertificateManager import CertificateManager
         import shutil
 
         StrObject.Messages(f"Generating Agent Certificate: {AgentID}")
@@ -176,7 +176,7 @@ def GenerateMultipleAgents(
     HideConsole=False,
 ):
     try:
-        from Cores.Systems.CertificateManager import CertificateManager
+        from lib.core.Systems.CertificateManager import CertificateManager
         import shutil
 
         StrObject.Messages(f"Generating {Count} Agent Certificates")
@@ -269,7 +269,7 @@ def GenerateMultipleAgents(
 
 def ListAgents():
     try:
-        from Cores.Systems.CertificateManager import CertificateManager
+        from lib.core.Systems.CertificateManager import CertificateManager
 
         CertManager = CertificateManager()
         Clients = CertManager.ListClients()
@@ -295,7 +295,7 @@ def ListAgents():
 
 def RevokeAgent(AgentID):
     try:
-        from Cores.Systems.CertificateManager import CertificateManager
+        from lib.core.Systems.CertificateManager import CertificateManager
 
         CertManager = CertificateManager()
         AgentName = f"Agent-{AgentID}"
@@ -334,7 +334,7 @@ def StartGUI(
         os.environ["TOMCAT_USE_MTLS"] = "1" if UseMTLS else "0"
         os.environ["TOMCAT_METERPRETER_MODE"] = "1" if MeterpreterMode else "0"
         if Mode == "cli":
-            from Cores.App.Cli import TOMCATC2CLI
+            from lib.core.App.Cli import TOMCATC2CLI
 
             StrObject.Messages("INTERFACE: CLI MODE")
             CLI = TOMCATC2CLI()
@@ -345,7 +345,7 @@ def StartGUI(
                 MeterpreterMode=MeterpreterMode,
             )
         elif Mode == "gui":
-            from Cores.App.Gui import TOMCATC2GUI
+            from lib.core.App.Gui import TOMCATC2GUI
 
             StrObject.Messages("INTERFACE: TKINTER GUI")
             GUI = TOMCATC2GUI()
@@ -356,7 +356,7 @@ def StartGUI(
                 MeterpreterMode=MeterpreterMode,
             )
         else:
-            from Cores.App.App import TOMCATC2APP
+            from lib.core.App.App import TOMCATC2APP
 
             StrObject.Messages("INTERFACE: WEB PANEL (Flask)")
             GUI = TOMCATC2APP()

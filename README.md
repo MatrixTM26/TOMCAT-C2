@@ -1,13 +1,13 @@
 <div align="center">
-    <img src="img/logo.png" width="300px" height="auto" alt="TOMCAT-C2 Logo" >
+    <img src="images/logo.png" width="300px" height="auto" alt="TOMCAT-C2 Logo" >
 </div>
 
 <h2 align="center">TOMCAT-C2 Framework</h2>
 
-
 **Author:** MatrixTM26  
 **GitHub:** [MatrixTM26](https://github.com/MatrixTM26)
 
+> [!IMPORTANT]
 > Copying without owner permission is illegal. If you want to expand this project, ask the owner for collaboration instead.
 
 ---
@@ -35,6 +35,7 @@ TOMCAT C2 is a multi-protocol Command & Control framework supporting three types
 ---
 
 ## Installation
+
 ```bash
 git clone https://github.com/MatrixTM26/TOMCAT-C2.git
 ```
@@ -58,7 +59,7 @@ pip install -r requirements.txt
 
 ## Project Structure
 
-```
+`````
 .
 ├── start.py                        # Entry point
 ├── AGENT/
@@ -93,8 +94,8 @@ pip install -r requirements.txt
         │   └── style.css
         └── js/
             └── script.js
-        
-```
+
+`````
 
 ---
 
@@ -138,21 +139,25 @@ python3 tomcatv2a.py
 ### 3. Start the Server
 
 **CLI mode (standard TOMCAT only):**
+
 ```bash
 python3 start.py -C
 ```
 
 **CLI mode with mTLS:**
+
 ```bash
 python3 start.py -C -T
 ```
 
 **CLI mode with Meterpreter + mTLS (all protocols):**
+
 ```bash
 python3 start.py -C -M -T
 ```
 
 **Web Panel (default):**
+
 ```bash
 python3 start.py
 ```
@@ -163,58 +168,58 @@ python3 start.py
 
 ### `start.py` Flags
 
-| Flag | Long Form | Description |
-|------|-----------|-------------|
-| `-i` | `--init-certs` | Initialize CA and server certificates |
-| `-a ID` | `--gen-agent ID` | Generate agent certificate and package |
-| `-m` | `--gen-multi-agent` | Generate multiple agents |
-| `-c N` | `--gen-agent-count N` | Number of agents to generate (default: 10) |
-| `-u PREFIX` | `--gen-agent-prefix PREFIX` | Agent name prefix (default: agent) |
-| `-l` | `--list-agents` | List all issued agent certificates |
-| `-r ID` | `--revoke-agent ID` | Revoke an agent certificate |
-| `-T` | `--mtls` | Enable mTLS on the server |
-| `-M` | `--meterpreter` | Enable multi-protocol mode (Meterpreter + RevShell) |
-| `-w HOST` | `--host HOST` | Web panel bind host (default: 0.0.0.0) |
-| `-p PORT` | `--port PORT` | Web panel port (default: 5000) |
-| `-S HOST` | `--server-host HOST` | Host embedded in server certificate SAN |
-| `-ah HOST` | `--agent-host HOST` | C2 host embedded in generated agent script |
-| `-ap PORT` | `--agent-port PORT` | C2 port embedded in generated agent script |
-| `-am` | `--agent-mtls` | Enable mTLS in generated agent |
-| `-hc` | `--hide-console` | Hide console window in generated agent (Windows) |
-| `-ps` | `--persistence` | Add persistence to generated agent |
-| `-C` | `--cli-mode` | Start with CLI interface |
-| `-G` | `--gui-mode` | Start with Tkinter GUI |
-| `-W` | `--web-mode` | Start with Web Panel (Flask) |
+| Flag        | Long Form                   | Description                                         |
+| ----------- | --------------------------- | --------------------------------------------------- |
+| `-i`        | `--init-certs`              | Initialize CA and server certificates               |
+| `-a ID`     | `--gen-agent ID`            | Generate agent certificate and package              |
+| `-m`        | `--gen-multi-agent`         | Generate multiple agents                            |
+| `-c N`      | `--gen-agent-count N`       | Number of agents to generate (default: 10)          |
+| `-u PREFIX` | `--gen-agent-prefix PREFIX` | Agent name prefix (default: agent)                  |
+| `-l`        | `--list-agents`             | List all issued agent certificates                  |
+| `-r ID`     | `--revoke-agent ID`         | Revoke an agent certificate                         |
+| `-T`        | `--mtls`                    | Enable mTLS on the server                           |
+| `-M`        | `--meterpreter`             | Enable multi-protocol mode (Meterpreter + RevShell) |
+| `-w HOST`   | `--host HOST`               | Web panel bind host (default: 0.0.0.0)              |
+| `-p PORT`   | `--port PORT`               | Web panel port (default: 5000)                      |
+| `-S HOST`   | `--server-host HOST`        | Host embedded in server certificate SAN             |
+| `-ah HOST`  | `--agent-host HOST`         | C2 host embedded in generated agent script          |
+| `-ap PORT`  | `--agent-port PORT`         | C2 port embedded in generated agent script          |
+| `-am`       | `--agent-mtls`              | Enable mTLS in generated agent                      |
+| `-hc`       | `--hide-console`            | Hide console window in generated agent (Windows)    |
+| `-ps`       | `--persistence`             | Add persistence to generated agent                  |
+| `-C`        | `--cli-mode`                | Start with CLI interface                            |
+| `-G`        | `--gui-mode`                | Start with Tkinter GUI                              |
+| `-W`        | `--web-mode`                | Start with Web Panel (Flask)                        |
 
 ### CLI Session Commands
 
-| Command | Description |
-|---------|-------------|
-| `sessions` | List all active sessions |
-| `use <id>` | Enter interactive shell for a session |
-| `exec <id> <cmd>` | Execute a single command on a session |
-| `kill <id>` | Terminate a session |
-| `status` | Show server status and uptime |
-| `stats` | Session type breakdown (TOMCAT / Meterpreter / Shell) |
-| `logs` | View recent event log |
-| `clear` | Clear terminal |
-| `help` | Show command reference |
-| `exit` | Stop server and quit |
+| Command           | Description                                           |
+| ----------------- | ----------------------------------------------------- |
+| `sessions`        | List all active sessions                              |
+| `use <id>`        | Enter interactive shell for a session                 |
+| `exec <id> <cmd>` | Execute a single command on a session                 |
+| `kill <id>`       | Terminate a session                                   |
+| `status`          | Show server status and uptime                         |
+| `stats`           | Session type breakdown (TOMCAT / Meterpreter / Shell) |
+| `logs`            | View recent event log                                 |
+| `clear`           | Clear terminal                                        |
+| `help`            | Show command reference                                |
+| `exit`            | Stop server and quit                                  |
 
 ### Agent Commands (inside `use <id>`)
 
-| Command | Description |
-|---------|-------------|
-| `sysinfo` | Full system information |
-| `elevate` | Check privilege escalation opportunities |
-| `screenshot` | Capture and download a screenshot |
-| `download <path>` | Download a file from the agent |
-| `upload <local> <remote>` | Upload a file to the agent |
-| `dl <path>` | Alias for download |
-| `cd <dir>` | Change working directory on agent |
-| `stoptask` | Kill the currently running command |
-| `back` | Return to main console |
-| Any shell command | Executed via `subprocess` on the target |
+| Command                   | Description                              |
+| ------------------------- | ---------------------------------------- |
+| `sysinfo`                 | Full system information                  |
+| `elevate`                 | Check privilege escalation opportunities |
+| `screenshot`              | Capture and download a screenshot        |
+| `download <path>`         | Download a file from the agent           |
+| `upload <local> <remote>` | Upload a file to the agent               |
+| `dl <path>`               | Alias for download                       |
+| `cd <dir>`                | Change working directory on agent        |
+| `stoptask`                | Kill the currently running command       |
+| `back`                    | Return to main console                   |
+| Any shell command         | Executed via `subprocess` on the target  |
 
 ---
 
@@ -238,11 +243,11 @@ The CA signs both the server certificate and every agent certificate. During the
 
 When started with `-M`, the server detects the session type from the first bytes of each incoming connection:
 
-| First bytes | Detected as |
-|-------------|-------------|
-| TLS ClientHello (`0x16 0x03`) | TOMCAT agent (SSL wrapped, then identified) |
-| Meterpreter length-prefix header | Meterpreter session |
-| Printable UTF-8 / shell prompt | Reverse shell |
+| First bytes                      | Detected as                                 |
+| -------------------------------- | ------------------------------------------- |
+| TLS ClientHello (`0x16 0x03`)    | TOMCAT agent (SSL wrapped, then identified) |
+| Meterpreter length-prefix header | Meterpreter session                         |
+| Printable UTF-8 / shell prompt   | Reverse shell                               |
 
 This allows a single port to accept all three simultaneously without reconfiguration.
 
@@ -269,11 +274,11 @@ python3 start.py -r agent01
 
 Certificates are stored in `Certs/`. Agent certificates are stored in `Certs/AgentTCF/`. Metadata (creation dates, paths) is tracked in `Certs/Metadata.json`.
 
-| Certificate | Validity |
-|-------------|----------|
-| CA | 10 years |
-| Server | 1 year |
-| Agent | 1 year (default) |
+| Certificate | Validity         |
+| ----------- | ---------------- |
+| CA          | 10 years         |
+| Server      | 1 year           |
+| Agent       | 1 year (default) |
 
 ---
 

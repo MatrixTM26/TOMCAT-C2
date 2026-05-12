@@ -14,8 +14,8 @@
 
 import threading
 import os
-from Cores.Systems.System import StrObject
-from Config.Color import TMColor
+from lib.core.Systems.System import StrObject
+from lib.config.Color import TMColor
 from datetime import datetime
 from flask import Flask, render_template, jsonify, request
 from time import time
@@ -28,17 +28,17 @@ class TOMCATC2APP:
         BaseDir = os.path.dirname(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         )
-        TemplateDir = os.path.join(BaseDir, "Config", "templates")
-        StaticDir = os.path.join(BaseDir, "Config", "static")
+        TemplateDir = os.path.join(BaseDir, "lib.config", "templates")
+        StaticDir = os.path.join(BaseDir, "lib.config", "static")
         if not os.path.exists(TemplateDir):
-            TemplateDir = os.path.join(BaseDir, "config", "templates")
-            StaticDir = os.path.join(BaseDir, "config", "static")
+            TemplateDir = os.path.join(BaseDir, "lib.config", "templates")
+            StaticDir = os.path.join(BaseDir, "lib.config", "static")
         self.App = Flask(
             __name__,
             template_folder=TemplateDir,
             static_folder=StaticDir,
         )
-        self.App.config["SECRET_KEY"] = "VE9NQ0FULUMyLUZyYW1ld29ya3MtVjIK"
+        self.App.lib.config["SECRET_KEY"] = "VE9NQ0FULUMyLUZyYW1ld29ya3MtVjIK"
         self.Server = None
         self.ServerStartTime = None
         self.Logs = []
@@ -151,13 +151,13 @@ class TOMCATC2APP:
             if self.Server and self.Server.Running:
                 return jsonify({"Success": False, "Message": "Server Already Running"})
             if UseMeterpreterMode:
-                from Cores.Systems.MultiProtocolServer import MultiProtocolServer
+                from lib.core.Systems.MultiProtocolServer import MultiProtocolServer
 
                 self.Server = MultiProtocolServer(
                     Host, Port, UseMTLS=UseMTLS, MeterpreterMode=True
                 )
             else:
-                from Cores.Systems.Server import TOMCATC2SERVER
+                from lib.core.Systems.Server import TOMCATC2SERVER
 
                 self.Server = TOMCATC2SERVER(Host, Port, UseMTLS=UseMTLS)
             self.Server.AddEventListener(self.ServerEventHandler)

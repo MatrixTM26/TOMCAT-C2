@@ -19,9 +19,9 @@ import json
 import os
 import traceback
 from datetime import datetime
-from Cores.Systems.System import StrObject
-from Cores.Systems.Cryptography import Cryptography
-from Config.Color import TMColor
+from lib.core.Systems.System import StrObject
+from lib.core.Systems.Cryptography import Cryptography
+from lib.config.Color import TMColor
 from time import sleep, time
 
 
