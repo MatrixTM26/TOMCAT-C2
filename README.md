@@ -328,8 +328,6 @@ The fix applies SSL wrapping based on a **peek** of the first bytes — plain-TC
 
 ---
 
-<p align="center">&copy; 2026 MatrixTM26</p>
-
 <div align="left">
 
 ## Support Me
