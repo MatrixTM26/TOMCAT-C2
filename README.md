@@ -59,43 +59,85 @@ pip install -r requirements.txt
 
 ## Project Structure
 
-`````
-.
-├── start.py                        # Entry point
-├── AGENT/
-│   └── tomcatv2a.py                # Agent template
-├── IMPLANT/                        # Generated agent packages (auto-created)
-├── Certs/                          # Server certificates (auto-created)
-│   ├── ca-key.pem
-│   ├── ca-cert.pem
-│   ├── server-key.pem
-│   ├── server-cert.pem
-│   └── Agent````                   # Per-agent certificates
-├── Downloads/                      # Files received from agents (auto-created)
-├── Cores/
-│   ├── App/
-│   │   ├── App.py                  # Web Panel (Flask)
-│   │   ├── Cli.py                  # CLI Interface
-│   │   └── Gui.py                  # Tkinter GUI
-│   └── Systems/
-│       ├── Server.py               # Standard TOMCAT-only server
-│       ├── MultiProtocolServer.py  # Multi-protocol server
-│       ├── CertificateManager.py   # PKI / certificate management
-│       └── Cryptography.py         # Fernet encryption wrapper
-└── Config/
-    ├── Color.py
-    ├── Logo.py
-    ├── Helper.py
-    └── templates/
-    │   └── index.html
-    │
-    └── static/
-        ├── css/
-        │   └── style.css
-        └── js/
-            └── script.js
+```
+TOMCAT-C2
+├── AGENT
+│   ├── Shell
+│   │   ├── shell-2.java
+│   │   ├── shell-2.js
+│   │   ├── shell-3.java
+│   │   ├── shell.asm
+│   │   ├── shell.c
+│   │   ├── shell.cpp
+│   │   ├── shell.cr
+│   │   ├── shell.dart
+│   │   ├── shell.go
+│   │   ├── shell.hs
+│   │   ├── shell.java
+│   │   ├── shell.js
+│   │   ├── shell.md
+│   │   ├── shell.pl
+│   │   ├── shell.ps1
+│   │   ├── shell.py
+│   │   └── shell.sh
+│   ├── tomcatv2a.bat
+│   ├── tomcatv2a.cs
+│   ├── tomcatv2a.go
+│   ├── tomcatv2a.java
+│   ├── tomcatv2a.js
+│   ├── tomcatv2a.php
+│   ├── tomcatv2a.ps1
+│   ├── tomcatv2a.py
+│   ├── tomcatv2a.rb
+│   ├── tomcatv2a.sh
+│   └── tomcatv2a.vbs
+├── CHANGELOG.md
+├── Certs
+│   ├── AgentTCF
+│   ├── Metadata.json
+│   ├── ca-cert.pem
+│   ├── ca-key.pem
+│   ├── server-cert.pem
+│   └── server-key.pem
+├── LICENSE
+├── QUICKSTART.md
+├── README.md
+├── doc
+│   └── AUTHORS
+├── images
+│   └── logo.png
+├── install.sh
+├── lib
+│   ├── config
+│   │   ├── Color.py
+│   │   ├── Helper.py
+│   │   ├── Logo.py
+│   │   ├── static
+│   │   │   ├── css
+│   │   │   │   └── style.css
+│   │   │   └── js
+│   │   │       ├── script.js
+│   │   │       ├── sidebar
+│   │   │       │   └── sidebar.js
+│   │   │       └── themes
+│   │   │           └── theme.js
+│   │   └── templates
+│   │       └── index.html
+│   └── core
+│       ├── App
+│       │   ├── App.py
+│       │   ├── Cli.py
+│       │   └── Gui.py
+│       └── Systems
+│           ├── CertificateManager.py
+│           ├── Cryptography.py
+│           ├── MultiProtocolServer.py
+│           ├── Server.py
+│           └── System.py
+├── requirements.txt
+└── start.py
 
-`````
+```
 
 ---
 
