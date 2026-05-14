@@ -17,7 +17,7 @@ import socket
 from datetime import datetime
 
 from lib.config.Color import TMColor
-from lib.cores.Systems.System import StrObject
+from lib.core.Systems.System import StrObject
 
 Hostname = socket.gethostname()
 Now = datetime.now()
