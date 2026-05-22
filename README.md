@@ -1,8 +1,17 @@
 <div align="center">
-    <img src="images/logo.png" width="300px" height="auto" alt="TOMCAT-C2 Logo" >
+
+<img src="images/logo.png" width="300px" height="auto" alt="TOMCAT-C2 Logo">
+
+# TOMCAT-C2 Framework
+
+### Multi-Protocol Command & Control Framework
+
+![License](https://img.shields.io/github/license/MatrixTM26/TOMCAT-C2?style=for-the-badge&color=red&labelColor=000000)
+![Python](https://img.shields.io/badge/Python-3.8+-000000?style=for-the-badge&logo=python&logoColor=ff0000)
+
 </div>
 
-<h2 align="center">TOMCAT-C2 Framework</h2>
+---
 
 **Author:** MatrixTM26  
 **GitHub:** [MatrixTM26](https://github.com/MatrixTM26)
@@ -12,44 +21,50 @@
 
 ---
 
-## Overview
+# Overview
 
-TOMCAT C2 is a multi-protocol Command & Control framework supporting three types of incoming connections on a single port: native TOMCAT agents, Meterpreter sessions, and generic reverse shells. It supports Mutual TLS (mTLS) for authenticated, encrypted agent communication and ships with a built-in PKI to manage certificates.
+TOMCAT C2 is a multi-protocol Command & Control framework supporting three types of incoming connections on a single port:
 
+- Native TOMCAT agents
+- Meterpreter sessions
+- Generic reverse shells
+
+The framework supports Mutual TLS (mTLS) for authenticated and encrypted agent communication while also shipping with a built-in PKI infrastructure for certificate generation and management.
+
+TOMCAT-C2 combines multi-session management, encrypted communication, multi-interface administration, and multi-protocol session handling into a single unified framework.
+
+<div align="center">
+<img src="images/overview.jpg" width="300px" height="auto" alt="TOMCAT-C2 Logo">
+</div>
 ---
 
-## Features
+# <img src="https://cdn.simpleicons.org/apachekafka/ff0000" width="18"> Features
 
 - **Multi-Protocol** — single listener accepts TOMCAT agents, Meterpreter, and reverse shells simultaneously
 - **mTLS Support** — mutual TLS with CA-signed client certificates; only authorized agents can connect
-- **Fernet Encryption** — all TOMCAT agent traffic is encrypted end-to-end using symmetric Fernet keys
-- **Three Interfaces** — CLI, Web Panel (Flask), and Tkinter GUI
-- **Built-in PKI** — generate CA, server certificates, and per-agent certificates from the CLI
-- **Agent Packaging** — auto-generates a ready-to-deploy agent folder with pre-configured certs and script
-- **Certificate Management** — list, generate, and revoke agent certificates
-- **File Transfer** — upload and download files to/from agents
-- **Session Commands** — `sysinfo`, `screenshot`, `elevate`, `cd`, `download`, `upload`, `stoptask`
-- **Persistence** — optional Windows (Registry) and Linux (Cron) persistence for agents
-- **Multi-Session** — interact with multiple sessions concurrently
+- **Fernet Encryption** — encrypted end-to-end communication using symmetric Fernet keys
+- **Three Interfaces** — CLI, Flask Web Panel, and Tkinter GUI
+- **Built-in PKI** — generate CA certificates, server certificates, and per-agent certificates directly from CLI
+- **Agent Packaging** — auto-generates deployable agent folders with certificates and scripts
+- **Certificate Management** — generate, revoke, and manage issued certificates
+- **File Transfer** — upload and download files between server and agent
+- **Session Commands** — sysinfo, screenshot, elevate, upload, download, shell execution, and task management
+- **Persistence** — optional Windows Registry and Linux Cron persistence
+- **Multi-Session** — manage multiple sessions concurrently
+- **Interactive Console** — fully interactive session handling with shell support
+- **Cross-Protocol Detection** — automatic session identification based on incoming traffic
 
 ---
 
-## Installation
+# <img src="https://cdn.simpleicons.org/git/ff0000" width="18"> Installation
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/MatrixTM26/TOMCAT-C2.git
 ```
 
-## Requirements
-
-```
-Python 3.8+
-cryptography
-flask         (for Web Panel mode)
-pysocks
-```
-
-Install dependencies:
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -57,9 +72,20 @@ pip install -r requirements.txt
 
 ---
 
-## Project Structure
+# <img src="https://cdn.simpleicons.org/python/ff0000" width="18"> Requirements
 
+```text
+Python 3.8+
+cryptography
+flask
+pysocks
 ```
+
+---
+
+# <img src="https://cdn.simpleicons.org/files/ff0000" width="18"> Project Structure
+
+```text
 TOMCAT-C2
 ├── AGENT
 │   ├── Shell
@@ -141,64 +167,70 @@ TOMCAT-C2
 
 ---
 
-## Quick Start
+# <img src="https://cdn.simpleicons.org/gnubash/ff0000" width="18"> Quick Start
 
-### 1. Initialize Certificates (required for mTLS)
+## 1. Initialize Certificates
+
+Required for mTLS communication.
 
 ```bash
 python3 start.py --init-certs
 ```
 
-Optionally specify the server's public IP so the cert SAN matches:
+Specify custom server IP:
 
 ```bash
 python3 start.py --init-certs --server-host 192.168.1.10
 ```
 
-### 2. Generate an Agent Package
+---
+
+## 2. Generate Agent Package
 
 ```bash
 python3 start.py --gen-agent myagent --agent-host 192.168.1.10 --agent-port 4444 --agent-mtls
 ```
 
-This creates `IMPLANT/MYAGENT/` containing:
+Generated structure:
 
-```
+```text
 IMPLANT/MYAGENT/
-├── tomcatv2a.py      # Pre-configured agent script
+├── tomcatv2a.py
 ├── agent-key.pem
 ├── agent-cert.pem
 ├── ca-cert.pem
 └── README.txt
 ```
 
-Copy the entire folder to the target machine and run:
+Run agent:
 
 ```bash
 python3 tomcatv2a.py
 ```
 
-### 3. Start the Server
+---
 
-**CLI mode (standard TOMCAT only):**
+## 3. Start Server
+
+### CLI Mode
 
 ```bash
 python3 start.py -C
 ```
 
-**CLI mode with mTLS:**
+### CLI Mode + mTLS
 
 ```bash
 python3 start.py -C -T
 ```
 
-**CLI mode with Meterpreter + mTLS (all protocols):**
+### Multi-Protocol Mode
 
 ```bash
 python3 start.py -C -M -T
 ```
 
-**Web Panel (default):**
+### Flask Web Panel
 
 ```bash
 python3 start.py
@@ -206,182 +238,138 @@ python3 start.py
 
 ---
 
-## Command Reference
+# <img src="https://cdn.simpleicons.org/letsencrypt/ff0000" width="18"> mTLS Architecture
 
-### `start.py` Flags
-
-| Flag        | Long Form                   | Description                                         |
-| ----------- | --------------------------- | --------------------------------------------------- |
-| `-i`        | `--init-certs`              | Initialize CA and server certificates               |
-| `-a ID`     | `--gen-agent ID`            | Generate agent certificate and package              |
-| `-m`        | `--gen-multi-agent`         | Generate multiple agents                            |
-| `-c N`      | `--gen-agent-count N`       | Number of agents to generate (default: 10)          |
-| `-u PREFIX` | `--gen-agent-prefix PREFIX` | Agent name prefix (default: agent)                  |
-| `-l`        | `--list-agents`             | List all issued agent certificates                  |
-| `-r ID`     | `--revoke-agent ID`         | Revoke an agent certificate                         |
-| `-T`        | `--mtls`                    | Enable mTLS on the server                           |
-| `-M`        | `--meterpreter`             | Enable multi-protocol mode (Meterpreter + RevShell) |
-| `-w HOST`   | `--host HOST`               | Web panel bind host (default: 0.0.0.0)              |
-| `-p PORT`   | `--port PORT`               | Web panel port (default: 5000)                      |
-| `-S HOST`   | `--server-host HOST`        | Host embedded in server certificate SAN             |
-| `-ah HOST`  | `--agent-host HOST`         | C2 host embedded in generated agent script          |
-| `-ap PORT`  | `--agent-port PORT`         | C2 port embedded in generated agent script          |
-| `-am`       | `--agent-mtls`              | Enable mTLS in generated agent                      |
-| `-hc`       | `--hide-console`            | Hide console window in generated agent (Windows)    |
-| `-ps`       | `--persistence`             | Add persistence to generated agent                  |
-| `-C`        | `--cli-mode`                | Start with CLI interface                            |
-| `-G`        | `--gui-mode`                | Start with Tkinter GUI                              |
-| `-W`        | `--web-mode`                | Start with Web Panel (Flask)                        |
-
-### CLI Session Commands
-
-| Command           | Description                                           |
-| ----------------- | ----------------------------------------------------- |
-| `sessions`        | List all active sessions                              |
-| `use <id>`        | Enter interactive shell for a session                 |
-| `exec <id> <cmd>` | Execute a single command on a session                 |
-| `kill <id>`       | Terminate a session                                   |
-| `status`          | Show server status and uptime                         |
-| `stats`           | Session type breakdown (TOMCAT / Meterpreter / Shell) |
-| `logs`            | View recent event log                                 |
-| `clear`           | Clear terminal                                        |
-| `help`            | Show command reference                                |
-| `exit`            | Stop server and quit                                  |
-
-### Agent Commands (inside `use <id>`)
-
-| Command                   | Description                              |
-| ------------------------- | ---------------------------------------- |
-| `sysinfo`                 | Full system information                  |
-| `elevate`                 | Check privilege escalation opportunities |
-| `screenshot`              | Capture and download a screenshot        |
-| `download <path>`         | Download a file from the agent           |
-| `upload <local> <remote>` | Upload a file to the agent               |
-| `dl <path>`               | Alias for download                       |
-| `cd <dir>`                | Change working directory on agent        |
-| `stoptask`                | Kill the currently running command       |
-| `back`                    | Return to main console                   |
-| Any shell command         | Executed via `subprocess` on the target  |
-
----
-
-## mTLS Architecture
-
-```
-  C2 Server                          Agent
-  ─────────                          ─────
-  ca-cert.pem  ◄── shared trust ──►  ca-cert.pem
-  server-key.pem                     agent-key.pem
-  server-cert.pem                    agent-cert.pem
-       │                                  │
+```text
+  C2 Server                               Agent
+  ─────────                           ─────────
+  ca-cert.pem   ◄── shared trust ──►  ca-cert.pem
+  server-key.pem                       agent-key.pem
+  server-cert.pem                      agent-cert.pem
+       │                                     │
        └──────── TLS mutual auth ─────────┘
 ```
 
-The CA signs both the server certificate and every agent certificate. During the TLS handshake both sides verify each other against the same CA. An agent without a valid CA-signed certificate is rejected at the SSL layer before any C2 protocol is spoken.
+The Certificate Authority signs both server certificates and agent certificates. During the TLS handshake, both sides verify each other using the same trusted CA.
+
+Agents without valid CA-signed certificates are rejected during SSL negotiation before any protocol communication occurs.
 
 ---
 
-## Multi-Protocol Mode (`-M`)
+# <img src="https://cdn.simpleicons.org/databricks/ff0000" width="18"> Multi-Protocol Mode (`-M`)
 
-When started with `-M`, the server detects the session type from the first bytes of each incoming connection:
+When Multi-Protocol Mode is enabled, TOMCAT-C2 automatically detects incoming session types based on the first incoming bytes.
 
-| First bytes                      | Detected as                                 |
-| -------------------------------- | ------------------------------------------- |
-| TLS ClientHello (`0x16 0x03`)    | TOMCAT agent (SSL wrapped, then identified) |
-| Meterpreter length-prefix header | Meterpreter session                         |
-| Printable UTF-8 / shell prompt   | Reverse shell                               |
+| First Bytes        | Detected As         |
+| ------------------ | ------------------- |
+| TLS ClientHello    | TOMCAT Agent        |
+| Meterpreter Header | Meterpreter Session |
+| UTF-8 Shell Prompt | Reverse Shell       |
 
-This allows a single port to accept all three simultaneously without reconfiguration.
+This allows all supported session types to operate simultaneously on a single listening port.
 
 ---
 
-## Certificate Management
+# <img src="https://cdn.simpleicons.org/openssl/ff0000" width="18"> Certificate Management
+
+## Initialize Certificates
 
 ```bash
-# Initialize CA + server cert
 python3 start.py --init-certs
+```
 
-# Generate single agent package (mTLS enabled)
+## Generate Single Agent
+
+```bash
 python3 start.py -a agent01 -ah 10.0.0.1 -ap 4444 -am
+```
 
-# Generate 5 agents with a prefix
+## Generate Multiple Agents
+
+```bash
 python3 start.py -m -c 5 -u op1 -ah 10.0.0.1 -ap 4444 -am
+```
 
-# List all issued agent certs
+## List Issued Certificates
+
+```bash
 python3 start.py -l
+```
 
-# Revoke an agent cert
+## Revoke Certificate
+
+```bash
 python3 start.py -r agent01
 ```
 
-Certificates are stored in `Certs/`. Agent certificates are stored in `Certs/AgentTCF/`. Metadata (creation dates, paths) is tracked in `Certs/Metadata.json`.
+Certificates are stored inside:
 
-| Certificate | Validity         |
-| ----------- | ---------------- |
-| CA          | 10 years         |
-| Server      | 1 year           |
-| Agent       | 1 year (default) |
-
----
-
-## Agent Configuration
-
-The generated `tomcatv2a.py` has these variables pre-filled by `start.py`:
-
-```python
-ServerHost     = "192.168.1.10"
-ServerPort     = 4444
-UseMTLS        = True
-HideConsole    = False
-AddPersistence = False
-```
-
-To deploy without mTLS (plain TCP), omit `-am` when generating the agent:
-
-```bash
-python3 start.py -a myagent -ah 192.168.1.10 -ap 4444
+```text
+Certs/
+├── AgentTCF/
+├── Metadata.json
+├── ca-cert.pem
+├── ca-key.pem
+├── server-cert.pem
+└── server-key.pem
 ```
 
 ---
 
-## Known Issues / Fixes Applied
+# <img src="https://cdn.simpleicons.org/gnometerminal/ff0000" width="18"> CLI Session Commands
 
-**Bug (fixed in `MultiProtocolServer.py`):** When running with both `-M` (MeterpreterMode) and `-T` (mTLS), TOMCAT agents using `UseMTLS=True` could not connect. The root cause was:
-
-1. `StartServer()` and `SessionHandler()` guarded SSL setup with `and not self.MeterpreterMode`, so no SSL wrapping ever happened.
-2. `IdentifySession()` detected the TLS ClientHello from the agent and immediately closed the connection.
-
-The fix applies SSL wrapping based on a **peek** of the first bytes — plain-TCP clients (Meterpreter, reverse shells) pass through unwrapped, while TLS clients (TOMCAT agents) are wrapped before identification.
-
----
-
-## Security Notes
-
-- Keep `ca-key.pem` and `server-key.pem` secure and never deploy them to agents.
-- Each agent receives its own unique key pair; revoking one does not affect others.
-- Without `-T`/`--mtls`, any client that completes the TOMCAT handshake will be accepted — use mTLS in production.
-- Fernet keys are ephemeral (generated at server start); restarting the server invalidates all existing agent sessions.
+| Command           | Description            |
+| ----------------- | ---------------------- |
+| `sessions`        | List active sessions   |
+| `use <id>`        | Open interactive shell |
+| `exec <id> <cmd>` | Execute command        |
+| `kill <id>`       | Terminate session      |
+| `status`          | Server status          |
+| `stats`           | Session statistics     |
+| `logs`            | View logs              |
+| `clear`           | Clear terminal         |
+| `help`            | Show help              |
+| `exit`            | Shutdown server        |
 
 ---
 
-## Another Shell Backdoor For This Project
+# <img src="https://cdn.simpleicons.org/linux/ff0000" width="18"> Agent Commands
+
+| Command      | Description                 |
+| ------------ | --------------------------- |
+| `sysinfo`    | System information          |
+| `elevate`    | Privilege escalation checks |
+| `screenshot` | Capture screenshot          |
+| `download`   | Download file               |
+| `upload`     | Upload file                 |
+| `cd`         | Change directory            |
+| `stoptask`   | Stop current task           |
+| `back`       | Return to main console      |
+
+---
+
+# <img src="https://cdn.simpleicons.org/securityscorecard/ff0000" width="18"> Security Notes
+
+- Keep `ca-key.pem` and `server-key.pem` secure
+- Never deploy private server keys to agents
+- Each agent receives unique certificates
+- Use `--mtls` in production deployments
+- Fernet keys regenerate on every server restart
+
+---
+
+# <img src="https://cdn.simpleicons.org/github/ff0000" width="18"> Another Shell Backdoor For This Project
 
 [SHELL BACKDOOR LIST](https://github.com/MatrixTM26/shell-backdoor)
 
 ---
 
-<div align="left">
+# <img src="https://cdn.simpleicons.org/githubsponsors/ff0000" width="18"> Support Me
 
-## ◈ Support Me
-
-If this project helps, you can support me here:
-
-[![Ko-fi](https://img.shields.io/badge/KO--FI-000000?style=for-the-badge&logo=kofi&logoColor=ff5f5f)](https://ko-fi.com/MatrixTM26)
-[![Trakteer](https://img.shields.io/badge/TRAKTEER-000000?style=for-the-badge&logo=buymeacoffee&logoColor=ff4444)](https://trakteer.id/MatrixTM26)
-[![PayPal](https://img.shields.io/badge/PAYPAL-000000?style=for-the-badge&logo=paypal&logoColor=00a2ff)](https://paypal.me/TeukuMaulana)
-
-</div>
+[![Ko-fi](https://img.shields.io/badge/KO--FI-000000?style=for-the-badge&logo=kofi&logoColor=ff0000)](https://ko-fi.com/MatrixTM26)
+[![Trakteer](https://img.shields.io/badge/TRAKTEER-000000?style=for-the-badge&logo=buymeacoffee&logoColor=ff0000)](https://trakteer.id/MatrixTM26)
+[![PayPal](https://img.shields.io/badge/PAYPAL-000000?style=for-the-badge&logo=paypal&logoColor=ff0000)](https://paypal.me/TeukuMaulana)
 
 ---
 
-<p align="center">&copy; 2023-2026 MatrixTM26</p>
+<p align="center"><b>&copy; 2023-2026 MatrixTM26</b></p>

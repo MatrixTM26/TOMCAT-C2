@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # TOMCAT C2 Frameworks
-# Author: MatrixTM26
-# GitHub: MatrixTM26
+# Author: XTM26
+# GitHub: XTM26
 
 """
 [+] NOTE:
@@ -9,7 +9,7 @@
     -- If you want to expand this project, ask owner for collaboration instead.
 
     Thanks for understanding.
-    ~MatrixTM26
+    ~XTM26
 """
 
 import threading
@@ -28,17 +28,17 @@ class TOMCATC2APP:
         BaseDir = os.path.dirname(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         )
-        TemplateDir = os.path.join(BaseDir, "lib.config", "templates")
-        StaticDir = os.path.join(BaseDir, "lib.config", "static")
+        TemplateDir = os.path.join(BaseDir, "lib", "config", "templates")
+        StaticDir = os.path.join(BaseDir, "lib", "config", "static")
         if not os.path.exists(TemplateDir):
-            TemplateDir = os.path.join(BaseDir, "lib.config", "templates")
-            StaticDir = os.path.join(BaseDir, "lib.config", "static")
+            TemplateDir = os.path.join(BaseDir, "config", "templates")
+            StaticDir = os.path.join(BaseDir, "config", "static")
         self.App = Flask(
             __name__,
             template_folder=TemplateDir,
             static_folder=StaticDir,
         )
-        self.App.lib.config["SECRET_KEY"] = "VE9NQ0FULUMyLUZyYW1ld29ya3MtVjIK"
+        self.App.config["SECRET_KEY"] = "VE9NQ0FULUMyLUZyYW1ld29ya3MtVjIK"
         self.Server = None
         self.ServerStartTime = None
         self.Logs = []
