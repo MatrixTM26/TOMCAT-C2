@@ -33,9 +33,18 @@ The framework supports Mutual TLS (mTLS) for authenticated and encrypted agent c
 
 TOMCAT-C2 combines multi-session management, encrypted communication, multi-interface administration, and multi-protocol session handling into a single unified framework.
 
+## WEB UI OVERVIEW
+
 <div align="center">
-<img src="images/overview.jpg" width="300px" height="auto" alt="TOMCAT-C2 Logo">
+    <img src="images/w1.png" width="300px" height="auto" alt="TOMCAT-C2">
+    <hr />
+    <img src="images/w2.png" width="300px" height="auto" alt="TOMCAT-C2">
+    <hr />
+    <img src="images/w3.png" width="300px" height="auto" alt="TOMCAT-C2">
+    <hr />
+    <img src="images/w4.png" width="300px" height="auto" alt="TOMCAT-C2">
 </div>
+
 ---
 
 # <img src="https://cdn.simpleicons.org/apachekafka/ff0000" width="18"> Features

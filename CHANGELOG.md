@@ -35,6 +35,6 @@
 ---
 
 > [!IMPORTANT]
-> Note: For all the version above currently is under development. If you spotted a bug, please contact me via email: `anonymous999tm@gmail.com` or via: [instagram](https://instagram.com/xtm26.xp)
+> Note: For all the version above currently is under development. If you spotted a bug, please contact me via email: `anonymous.matrixtm26.dev@gmail.com` or via: [instagram](https://instagram.com/xtm26.xp)
 
 <p align="center">&copy; 2026 MatrixTM26</p>
