@@ -6,7 +6,7 @@
 
 ### Multi-Protocol Command & Control Framework
 
-![License](https://img.shields.io/github/license/MatrixTM26/TOMCAT-C2?style=for-the-badge&color=red&labelColor=000000)
+![License](https://img.shields.io/badge/AGPL-v3-000000?style=for-the-badge&logo=gnu&logoColor=A42E2B&labelColor=000000&color=brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.8+-000000?style=for-the-badge&logo=python&logoColor=ff0000)
 
 </div>
