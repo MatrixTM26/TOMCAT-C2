@@ -754,7 +754,7 @@ class TOMCATC2AGENT:
 
 
 ServerHost = "0.0.0.0"
-ServerPort = 4444
+ServerPort = 9926
 UseMTLS = False
 HideConsole = False
 AddPersistence = False

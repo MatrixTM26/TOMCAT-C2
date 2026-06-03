@@ -6,7 +6,7 @@ import os
 import sys
 
 HOST = "0.0.0.0"
-PORT = 4444
+PORT = 9926
 
 XBanner = """
             <   TOMCAT C2 Frameworks Agent   />
